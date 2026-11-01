@@ -1,0 +1,587 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voter Ready | Home</title>
+
+  <style>
+    :root {
+      --navy: #10264d;
+      --blue: #244d80;
+      --lightblue: #eaf3ff;
+      --red: #c83b45;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: white;
+      color: var(--navy);
+    }
+
+    a {
+      color: var(--blue);
+    }
+
+    /* HEADER */
+    header {
+      background: white;
+      padding: 15px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      border-bottom: 2px solid #e5e7eb;
+    }
+
+    .logo {
+      width: 160px;
+      height: auto;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    nav a:hover,
+    nav a.active {
+      text-decoration: underline;
+      text-underline-offset: 7px;
+    }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--lightblue);
+      min-height: 340px;
+    }
+
+    .hero-text {
+      padding: 55px 8%;
+      align-self: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 4vw, 52px);
+      margin: 0 0 15px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .hero-photo {
+      width: 100%;
+      height: 100%;
+      min-height: 290px;
+      object-fit: cover;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--navy);
+      color: white;
+      padding: 13px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+      margin: 4px 8px 4px 0;
+    }
+
+    .btn:hover {
+      background: var(--blue);
+    }
+
+    .btn-outline {
+      background: white;
+      color: var(--navy);
+      border: 2px solid var(--navy);
+    }
+
+    .btn-outline:hover {
+      background: #d6e5fa;
+    }
+
+    /* ICON NAVIGATION */
+    .quick-links {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+      padding: 32px 5%;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .quick-links a {
+      display: block;
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: bold;
+      padding: 12px 6px;
+      border-radius: 8px;
+    }
+
+    .quick-links a:hover {
+      background: var(--lightblue);
+    }
+
+    .quick-links img {
+      display: block;
+      width: 55px;
+      height: 55px;
+      object-fit: contain;
+      margin: 0 auto 12px;
+    }
+
+    /* HOMEPAGE CARDS */
+    .content {
+      max-width: 1400px;
+      margin: auto;
+      padding: 40px 5%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: #f5f6f8;
+      padding: 25px;
+      border-radius: 10px;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 24px;
+    }
+
+    .card p {
+      line-height: 1.6;
+    }
+
+    .game-card {
+      background: #e3efff;
+    }
+
+    .game-icon {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+
+    /* CHECKLIST */
+    .checklist {
+      list-style: none;
+      padding: 0;
+    }
+
+    .checklist li {
+      margin: 17px 0;
+    }
+
+    .checklist label {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      cursor: pointer;
+      line-height: 1.4;
+    }
+
+    .checklist input {
+      width: 19px;
+      height: 19px;
+      accent-color: var(--navy);
+      flex-shrink: 0;
+    }
+
+    .checklist input:checked + span {
+      text-decoration: line-through;
+      color: #666;
+    }
+
+    #progress {
+      font-weight: bold;
+    }
+
+    .reset {
+      background: white;
+      border: 1px solid var(--navy);
+      border-radius: 5px;
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+
+    /* ELECTION INFORMATION */
+    .date-item {
+      padding: 15px 0;
+      border-bottom: 1px solid #d0d0d0;
+    }
+
+    .date-item strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .date-item p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy);
+      color: white;
+      padding: 30px 5%;
+      text-align: center;
+    }
+
+    footer p {
+      line-height: 1.6;
+    }
+
+    footer a {
+      color: white;
+    }
+
+    /* MOBILE DESIGN */
+    @media (max-width: 850px) {
+      header {
+        flex-direction: column;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-text {
+        padding: 35px 6%;
+      }
+
+      .quick-links {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .content {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER AND LOGO -->
+  <header>
+    <a href="index.html">
+      <img
+        class="logo"
+        src="assets/voter-ready-logo.png"
+        alt="Voter Ready logo">
+    </a>
+
+    <nav aria-label="Main navigation">
+      <a class="active" href="index.html">Home</a>
+      <a href="registration.html">Voter Registration</a>
+      <a href="how-to-vote.html">How to Vote</a>
+      <a href="elections.html">Election Information</a>
+      <a href="faq.html">FAQ</a>
+      <a href="about.html">About & Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- MAIN BANNER -->
+    <section class="hero">
+
+      <div class="hero-text">
+        <h1>Your Guide to Voting</h1>
+
+        <p>
+          New to voting? You're in the right place.
+          Learn how to register, get ready for
+          Election Day, and understand the voting
+          process one step at a time.
+        </p>
+
+        <a class="btn" href="registration.html">
+          Register to Vote
+        </a>
+
+        <a class="btn btn-outline" href="games/index.html">
+          Play the Voting Game
+        </a>
+      </div>
+
+      <img
+        class="hero-photo"
+        src="assets/capitol.jpg"
+        alt="United States Capitol building">
+
+    </section>
+
+    <!-- QUICK LINKS -->
+    <section class="quick-links" aria-label="Voting resources">
+
+      <a href="registration.html">
+        <img src="assets/voter-registration.png" alt="">
+        Voter Registration
+      </a>
+
+      <a href="how-to-vote.html">
+        <img src="assets/how-to-vote.png" alt="">
+        How to Vote
+      </a>
+
+      <a href="elections.html">
+        <img src="assets/election-information.png" alt="">
+        Election Information
+      </a>
+
+      <a href="faq.html">
+        <img src="assets/faq.png" alt="">
+        FAQ
+      </a>
+
+      <a href="about.html">
+        <img src="assets/about-contact.png" alt="">
+        About & Contact
+      </a>
+
+    </section>
+
+    <!-- MAIN INFORMATION CARDS -->
+    <section class="content">
+
+      <!-- VOTER CHECKLIST -->
+      <article class="card">
+
+        <h2>First-Time Voter Checklist</h2>
+
+        <p>
+          Not sure where to start?
+          Follow these simple steps.
+        </p>
+
+        <ul class="checklist">
+          <li>
+            <label>
+              <input type="checkbox">
+              <span>Check if you're eligible to vote.</span>
+            </label>
+          </li>
+
+          <li>
+            <label>
+              <input type="checkbox">
+              <span>Register to vote.</span>
+            </label>
+          </li>
+
+          <li>
+            <label>
+              <input type="checkbox">
+              <span>Decide how you want to vote.</span>
+            </label>
+          </li>
+
+          <li>
+            <label>
+              <input type="checkbox">
+              <span>Find important dates and your voting location.</span>
+            </label>
+          </li>
+
+          <li>
+            <label>
+              <input type="checkbox">
+              <span>Check your state's ID requirements.</span>
+            </label>
+          </li>
+        </ul>
+
+        <p id="progress" aria-live="polite">
+          0 of 5 steps completed
+        </p>
+
+        <button class="reset" id="reset-checklist">
+          Reset Checklist
+        </button>
+
+      </article>
+
+      <!-- INTERACTIVE GAME -->
+      <article class="card game-card">
+
+        <img
+          class="game-icon"
+          src="assets/interactive-game.png"
+          alt="Game controller">
+
+        <h2>Election Challenge</h2>
+
+        <p>
+          Learn about elections in a fun,
+          interactive way!
+        </p>
+
+        <p>
+          Explore an Election Simulator where
+          you compare fictional candidates,
+          or try Campaign Manager to learn
+          how campaign decisions work.
+        </p>
+
+        <a class="btn" href="games/index.html">
+          Play Now
+        </a>
+
+        <p>
+          <small>
+            Educational games with fictional
+            candidates and election scenarios.
+          </small>
+        </p>
+
+      </article>
+
+      <!-- ELECTION INFORMATION -->
+      <article class="card">
+
+        <h2>Key Election Information</h2>
+
+        <div class="date-item">
+          <strong>Voter Registration</strong>
+          <p>
+            Check your state's registration deadline.
+          </p>
+        </div>
+
+        <div class="date-item">
+          <strong>Early Voting</strong>
+          <p>
+            Find out whether early voting is available.
+          </p>
+        </div>
+
+        <div class="date-item">
+          <strong>Election Day</strong>
+          <p>
+            Find upcoming elections and voting locations.
+          </p>
+        </div>
+
+        <p>
+          <a href="elections.html">
+            More Election Information →
+          </a>
+        </p>
+
+        <p>
+          <a href="https://vote.gov/"
+             target="_blank"
+             rel="noopener noreferrer">
+            Visit Vote.gov ↗
+          </a>
+        </p>
+
+      </article>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <h3>Voter Ready</h3>
+
+    <p>
+      Helping first-time voters learn,
+      prepare, and feel informed.
+    </p>
+
+    <p>
+      <small>
+        Independent student educational project.
+        Not an official government website.
+      </small>
+    </p>
+  </footer>
+
+  <!-- INTERACTIVE CHECKLIST JAVASCRIPT -->
+  <script>
+    const boxes = document.querySelectorAll(
+      '.checklist input[type="checkbox"]'
+    );
+
+    const progress = document.getElementById('progress');
+    const reset = document.getElementById('reset-checklist');
+
+    function updateProgress() {
+      const completed = [...boxes].filter(
+        box => box.checked
+      ).length;
+
+      progress.textContent =
+        `${completed} of ${boxes.length} steps completed`;
+
+      try {
+        localStorage.setItem(
+          'voterReadyChecklist',
+          JSON.stringify([...boxes].map(box => box.checked))
+        );
+      } catch (error) {
+        // Checklist still works without storage.
+      }
+    }
+
+    try {
+      const saved = JSON.parse(
+        localStorage.getItem('voterReadyChecklist') || '[]'
+      );
+
+      boxes.forEach((box, index) => {
+        box.checked = saved[index] === true;
+      });
+    } catch (error) {
+      // Start with an unchecked checklist.
+    }
+
+    boxes.forEach(box => {
+      box.addEventListener('change', updateProgress);
+    });
+
+    reset.addEventListener('click', () => {
+      boxes.forEach(box => box.checked = false);
+      updateProgress();
+    });
+
+    updateProgress();
+  </script>
+
+</body>
+</html>
